@@ -1,0 +1,49 @@
+<div class="card">
+  <h4 class="card-header">Cuentas Por Pagar</h4>
+  <div class="card-body">
+    <button type="button" class="btn btn-raised btn-primary">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+      Registrar Pago
+    </button>
+  </div>
+
+  <!-----Table----->
+
+  <div class="container">
+    <table class="table table-striped talbe-sm">
+      <thead>
+        <tr>
+          <th scope="col">#Factura</th>
+          <th scope="col">Proveedor</th>
+          <th scope="col">Orden de Compra</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Fecha de Pago</th>
+          <th scope="col">ITBIS</th>
+          <th scope="col">Total</th>
+          <th scope="col">Moneda</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of cuentas">
+          <th scope="row">{{c.idFactura}}</th>
+          <td>{{c.proveedor}}</td>
+          <td>{{c.ordenCompra}}</td>
+          <td>{{c.fecha}}</td>
+          <td>{{c.fechaPago}}</td>
+          <td>{{c.itbis}}</td>
+          <td>{{c.total}}</td>
+          <td>{{c.moneda}}</td>
+          <td>
+            <button type="button" class="btn btn-raised btn-info btn-sm mr-1 ">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="btn btn-raised btn-danger btn-sm">
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
