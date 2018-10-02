@@ -1,7 +1,7 @@
 <div class="card">
   <h4 class="card-header">Cuentas Por Pagar</h4>
   <div class="card-body">
-    <button type="button" class="btn btn-raised btn-primary">
+    <button type="button" class="btn btn-raised btn-primary" data-toggle="modal" data-target="#regModal">
       <i class="fa fa-plus" aria-hidden="true"></i>
       Registrar Pago
     </button>
@@ -34,16 +34,91 @@
           <td>{{c.total}}</td>
           <td>{{c.moneda}}</td>
           <td>
-            <button type="button" class="btn btn-raised btn-info btn-sm mr-1 ">
+            <button type="button" class="btn btn-raised btn-info btn-sm mr-1 " (click)="showForEdit()" data-toggle="modal"
+              data-target="#regModal">
               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             </button>
-            <button type="button" class="btn btn-raised btn-danger btn-sm">
+
+            <!-- Button trigger modal delete -->
+            <button type="button" class="btn btn-raised btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
               <i class="fa fa-trash-o" aria-hidden="true"></i>
             </button>
+
+            <!-- Delete Modal -->
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Eliminar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Esta seguro que quiere eliminar este registro
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-raised btn-danger" data-dismiss="modal">Eliminar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
-  </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="regModal" tabindex="-1" role="dialog" aria-labelledby="regModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="regModalLabel">Información de Pago</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="inputState">Proveedor</label>
+              <select id="inputState" class="form-control">
+                <option selected>Seleccionar...</option>
+                <option *ngFor="let p of proveedores">{{p.nombreProveedor}}</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="inputState">Orden de compra</label>
+              <select id="inputState" class="form-control">
+                <option selected>Compra Directa</option>
+                <option *ngFor="let o of ordenes">{{o}}</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="facturaInput" class="bmd-label-floating">Factura</label>
+              <input type="number" class="form-control" id="facturaInput">
+            </div>
+
+            <div class="form-group">
+              <label for="fechaInput">Email address</label>
+              <input type="date" class="form-control" id="fechaInput">
+            </div>
+
+            <div class="form-group">
+              <label for="comprobanteInputFile" class="bmd-label-floating"><small>Comprobante fiscal</small></label>
+              <input type="file" class="form-control-file" id="comprobanteInputFile">
+              <small class="text-muted">Este campo solo permite archivos del tipo (.PDF)</small>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-raised btn-primary" data-dismiss="modal">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
