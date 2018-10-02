@@ -19,4 +19,13 @@ export class CuentasComponent implements OnInit {
     { idFactura: 'AS332', proveedor: 'CIA. ACME, S.A. DE C.V.', ordenCompra: 'Directa', fecha: '12/09/2018', fechaPago: '12/09/2018', itbis: 165.52, Total: 1200.00, moneda: 'RD$ pesos' },
     { idFactura: 'AS324', proveedor: 'CIA. ACME, S.A. DE C.V.', ordenCompra: 'Directa', fecha: '12/09/2018', fechaPago: '12/09/2018', itbis: 165.52, Total: 1200.00, moneda: 'RD$ pesos' },
   ]
+
+  proveedores = [
+    { idEmpresa: 1, nombreProveedor:  'Comercial ACME, S.A. DE C.V.'},
+    { idEmpresa: 2, nombreProveedor:  'La Comercial S.A.'}, 
+    { idEmpresa: 3, nombreProveedor:  'CIA. ACME, S.A. DE C.V.'}  
+  ]
+
+  ordenes = ['0000314', '0000317', '0000319']
 }
+
