@@ -24,15 +24,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let c of cuentas">
-          <th scope="row">{{c.idFactura}}</th>
-          <td>{{c.proveedor}}</td>
-          <td>{{c.ordenCompra}}</td>
-          <td>{{c.fecha}}</td>
-          <td>{{c.fechaPago}}</td>
-          <td>{{c.itbis}}</td>
-          <td>{{c.total}}</td>
-          <td>{{c.moneda}}</td>
+        <tr *ngFor="let item of items | async">
+          <th scope="row">{{item.Factura}}</th>
+          <td>{{item.NombreProveedor}}</td>
+          <td>{{item.CodigoOrdenCompra}}</td>
+          <td>{{item.FechaCompra}}</td>
+          <td>{{item.FechaPago}}</td>
+          <td>{{item.Impuesto}}</td>
+          <td>{{item.Total}}</td>
+          <td>{{item.MonedaDesc}}</td>
           <td>
             <button type="button" class="btn btn-raised btn-info btn-sm mr-1 " data-toggle="modal"
               data-target="#regModal">
